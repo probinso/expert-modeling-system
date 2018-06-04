@@ -1,0 +1,117 @@
+\documentclass{article}
+
+\usepackage[affil-it]{authblk}
+
+\usepackage[USenglish,american]{babel}
+\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}
+
+\usepackage{cite}
+
+\usepackage{amsfonts,amsmath,amsthm,amssymb}
+
+\usepackage{tikz,pgf}
+\usetikzlibrary{fit}
+
+\usepackage{csvsimple}
+
+%\pagestyle{empty}
+\setlength{\parindent}{0mm}
+\usepackage[letterpaper, margin=1in]{geometry}
+%\usepackage{showframe}
+
+\usepackage{multicol}
+\usepackage{enumerate}
+
+\usepackage{verbatim}
+\usepackage{listings}
+
+\usepackage{color}
+
+%%
+%% Julia definition (c) 2014 Jubobs
+%%
+\lstdefinelanguage{Julia}%
+  {morekeywords={abstract,break,case,catch,const,continue,do,else,elseif,%
+      end,export,false,for,function,immutable,import,importall,if,in,%
+      macro,module,otherwise,quote,return,switch,true,try,type,typealias,%
+      using,while},%
+   sensitive=true,%
+   alsoother={$},%
+   morecomment=[l]\#,%
+   morecomment=[n]{\#=}{=\#},%
+   morestring=[s]{"}{"},%
+   morestring=[m]{'}{'},%
+}[keywords,comments,strings]%
+
+\lstset{%
+    language         = Python,
+    basicstyle       = \footnotesize\ttfamily,,
+    keywordstyle     = \bfseries\color{blue},
+    stringstyle      = \color{magenta},
+    commentstyle     = \color{red},
+    showstringspaces = false,
+    backgroundcolor  = \color{lightgray},
+    numbers          = left,
+    title            = \lstname,
+    numberstyle      = \tiny\color{lightgray}\ttfamily,
+}
+
+\usepackage{xspace}
+\usepackage{url}
+\usepackage{cite}
+
+\usepackage{coffee4}
+
+%\usepackage{titlesec}
+%\titlespacing*{\subsubsection}{0pt}{*0}{*0}
+%\titlespacing*{\subsection}{0pt}{0pt}{*0}
+%\titlespacing*{\section}{0pt}{0pt}{*0}
+
+\newcommand{\Bold}{\mathbf}
+
+\setlength{\parskip}{1em}
+%\setlength{\parindent}{1em}
+
+\title{SME-Topic Modeling}
+\date{\today}
+\author{Philip Robinson}
+\affil{NASA: Jet Propoultion Labratory}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+In a large commnity, identification of potential collaborators and subject matter experts greatly impacts the success of a project. Infering identification and ranking of these participants' relevent knowlege to a task or project is nessicary to develop impactful teams from these large communities\cite{Minto2007}. It is the goal of this paper to provide an outlined and strategy to infer best participants from their document contributions to a corpus. Topic modeling, such as BTM\cite{Yan2013}, LDA, and CTM, have long been used to group related topics\cite{Alghamdi2015}. Likewise, author modeling has been used to measure attribution\cite{Rexha2018} and contribution\cite{AldebeiHJ016}. Author-Topic modeling establishes strategy to relate topics to authors\cite{Rosen-Zvi2004}. Under the, common, assumption that authorship implies relevent knowlege to a document's topic I would like to explore the space of Author-Topic modeling as a mechanism for measuring expertise against a project description, as a query.
+\end{abstract}
+
+\section{Introduction}
+For my JPL fellowship I will be exploring Subject Matter Expert (SME) identification, from a collection of documents with attribution. SME identification is nessicary for building effective teams for specific projects. In order to support the scale of an an institution like JPL/NASA, and at the complexity of the problems they address, we are interested in strategies to infer identification of SMEs. An effective SME identifier would significantly reduce coordination overhead of election and discovery of contributors to complex, domain specific, problems.
+
+
+\begin{comment}
+
+The \texttt{A-Team} currently has a proposed solution, XXX. I am tasked with providing a competing solution, that can learn from more general corpus. This will allow us to compare results in a useful way.
+
+%\subsection{What is general technical area in which you will be working?}
+%\subsection{What is the problem that you are trying to solve?}
+%\subsection{How did this problem arise?}
+%\subsection{Why is this problem interesting or worthwhile?}
+\subsection{What is the status of related research by your mentor or group by the group that you will be joining?}
+\subsection{What will be the contribution and significance of your effort?}
+
+\section{Objectives}
+
+
+\section{Materials}
+\section{Results}
+\section{Discussion}
+\subsection{Study Assumptions}
+\subsection{Data Acquisition}
+\end{comment}
+
+\bibliography{references.bib}{}
+\bibliographystyle{plain}
+
+\end{document}
