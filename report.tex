@@ -97,6 +97,7 @@
 \end{abstract}
 
 % http://www.sfp.caltech.edu/students/proposal/other_project_plans
+% https://trs.jpl.nasa.gov/
 
 \section{Introduction}
 
@@ -108,7 +109,7 @@ interested in strategies to infer and retrieve SMEs. An effective SME retrieval 
 would significantly reduce coordination overhead of election and discovery of
 contributors to complex, domain specific, problems.
 
-JPL's \texttt{A-Team} explored, then developed an existing SME retrieval program.
+JPL's \texttt{A-Team} explored, then developed, a now existing SME retrieval program.
 In developing this program, teams cited work on heirarchical clustering by
 frequent-itemsets\cite{wang2003,kiran2010}. Frequent-itemsets\cite{Agrawal1993} are a
 tool from relation mining, which has historically been used to discover hidden
@@ -130,8 +131,6 @@ I am interested in author-topic\cite{Rosen-Zvi2004} modeling (ATM) to address th
 SME retrieval. The base algorithm for ATM is an extension of LDA to include modeling authors
 of documents. A query system would then be developed to rank Author-topics against project
 descriptions and like documents.
-
-% will co-authors be %
 
 There exists an open-source implementation of ATM in the \texttt{gensim}\cite{rehurek_lrec}
 module for \texttt{python}. If this proves effective, I would like to explore derivatives
