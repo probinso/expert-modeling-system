@@ -71,7 +71,7 @@
 \setlength{\parskip}{1em}
 %\setlength{\parindent}{1em}
 
-\title{SME/Author-Topic Modeling}
+\title{SME retrieval by Author-Topic Modeling}
 \date{\today}
 \author{Philip Robinson}
 \affil{NASA: Jet Propoultion Labratory}
@@ -120,6 +120,12 @@ advantage of supporting relatively small document sizes, and of varying shape. T
 partly because items for itemsets are not weighted by TF or IDF, but rather simply
 a word's existance in a document and a support parameter.
 
+Unlike topic modeling, author-topic modeling attempts to describe the authors as
+a generative model. Since we are looking for SMEs, which are authors over topics,
+author-modeling is a closer fit. There exist other author modeling techniques\cite{Rexha2018}
+which are more concerned with literal text-content contribution, but SMEs are
+described as experts of topics.
+
 \section{Objectives}
 
 The goal of this project is to propose an alternative, or collaborative, strategy for
@@ -127,9 +133,9 @@ SME retrieval. The document set will be different from \texttt{A-Team}'s, althou
 not distinct. Ideally, this should also serve as a bases for clustering document
 resources in preperation for relevent projects.
 
-In addition to a testing a clustering and retrieval strategy, this project should yield
-a full, usable, prototype. I discussed with my mentors developing a RESTFUL api to support
-this SME retrieval system.
+In addition to developing clustering and retrieval strategy, this project should yield
+a full, usable, search prototype. I discussed, with my mentors, the expectation of a
+RESTful api to support this SME retrieval system.
 
 \section{Approach}
 
@@ -153,6 +159,7 @@ proves more effective at author modeling then ATM, I would interpret this as a s
 indecator that AMFCTM would as well. Ideally, with a few more iterations, this
 project could end in an impressively unmanagable acronym.
 
+
 \section{Evaluation}
 
 In order to evaluate our model, we will need to have training and test SME sets. In
@@ -160,21 +167,17 @@ order to establish these, I propose a test and training set split by bisecting b
 mincut\cite{Feige2002} a graph where authors are verticies, and edges exist for each
 co-authors relationship.
 
-
-
 \section{Schedule}
 
 
 \begin{comment}
 
-The \texttt{A-Team} currently has a proposed solution, XXX. I am tasked with providing a competing solution, that can learn from more general corpus. This will allow us to compare results in a useful way.
-
 %\subsection{What is general technical area in which you will be working?}
 %\subsection{What is the problem that you are trying to solve?}
 %\subsection{How did this problem arise?}
 %\subsection{Why is this problem interesting or worthwhile?}
-\subsection{What is the status of related research by your mentor or group by the group that you will be joining?}
-\subsection{What will be the contribution and significance of your effort?}
+%\subsection{What is the status of related research by your mentor or group by the group that you will be joining?}
+%\subsection{What will be the contribution and significance of your effort?}
 
 \section{Objectives}
 
