@@ -7,7 +7,7 @@ report.pdf: report.tex references.bib
 	pdflatex report.tex
 
 clean:
-	rm -f report.{log,aux,bbl,blg}
+	rm -f *.{log,aux,bbl,blg}
 	rm -f *~
 
 veryclean:
