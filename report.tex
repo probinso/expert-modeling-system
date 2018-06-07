@@ -61,17 +61,17 @@
 \usepackage{url}
 \usepackage{cite}
 
-%\usepackage{titlesec}
-%\titlespacing*{\subsubsection}{0pt}{*0}{*0}
-%\titlespacing*{\subsection}{0pt}{0pt}{*0}
-%\titlespacing*{\section}{0pt}{0pt}{*0}
+\usepackage{titlesec}
+\titlespacing*{\subsubsection}{0pt}{*0}{*0}
+\titlespacing*{\subsection}{0pt}{0pt}{*0}
+\titlespacing*{\section}{0pt}{0pt}{*0}
 
 \newcommand{\Bold}{\mathbf}
 
 \setlength{\parskip}{1em}
 %\setlength{\parindent}{1em}
 
-\title{SME-Topic Modeling}
+\title{SME/Author-Topic Modeling}
 \date{\today}
 \author{Philip Robinson}
 \affil{NASA: Jet Propoultion Labratory}
@@ -99,6 +99,8 @@
 % http://www.sfp.caltech.edu/students/proposal/other_project_plans
 % https://trs.jpl.nasa.gov/
 
+\begin{multicols}{2}
+
 \section{Introduction}
 
 For my JPL fellowship I will be exploring Subject Matter Expert (SME) retrieval,
@@ -116,34 +118,47 @@ tool from relation mining, which has historically been used to discover hidden
 subpopulations with a shared characteristic pool. Clustering by frequent-itemsets has the
 advantage of supporting relatively small document sizes, and of varying shape. This is
 partly because items for itemsets are not weighted by TF or IDF, but rather simply
-their existance in a document and a support parameter.
+a word's existance in a document and a support parameter.
 
 \section{Objectives}
 
 The goal of this project is to propose an alternative, or collaborative, strategy for
-SME retrieval. The document set will be different from \texttt{A-Team} set, although
+SME retrieval. The document set will be different from \texttt{A-Team}'s, although
 not distinct. Ideally, this should also serve as a bases for clustering document
-resources in preperation for such projects.
+resources in preperation for relevent projects.
+
+In addition to a testing a clustering and retrieval strategy, this project should yield
+a full, usable, prototype. I discussed with my mentors developing a RESTFUL api to support
+this SME retrieval system.
 
 \section{Approach}
 
-I am interested in author-topic\cite{Rosen-Zvi2004} modeling (ATM) to address the problem of
-SME retrieval. The base algorithm for ATM is an extension of LDA to include modeling authors
-of documents. A query system would then be developed to rank Author-topics against project
+I am interested using author-topic\cite{Rosen-Zvi2004} modeling (ATM) to address the
+problem of SME retrieval. The base algorithm, in the liturature, for ATM is an
+extension of LDA to include modeling authors of documents as mixtures of topics. A
+query system would then be developed to rank Author-topics against project
 descriptions and like documents.
 
 There exists an open-source implementation of ATM in the \texttt{gensim}\cite{rehurek_lrec}
-module for \texttt{python}. If this proves effective, I would like to explore derivatives
-to ATM that rely on CTM instead of LDA. Unlike LDA, CTM models relationships
-between topics as well. % There also exist CTM models that weigh feilds of a document differently
-To my knowlege this strategy does not yet exist, and therefore adaptation may have high risk
-effect on the timeline.
+module for \texttt{python}. If this proves effective, I would like to explore
+derivatives to ATM that rely on CTM instead of LDA. Unlike LDA, CTM models
+relationships between topics as well. Althought this strategy may have unforseen time
+cost in implementation, the concept is relatively simple; of modeling an author as a
+mixture of topics. To my knowlege Author-Coorelated-Topic Models (ACTM) do not yet
+have implementations.
+
+Additionally, there exists an extension of CTM that respect document fields, called
+Multi-field Coorelated Field Topic Modeling\cite{Salomatin2009MultifieldCT}. If ACTM
+proves more effective at author modeling then ATM, I would interpret this as a strong
+indecator that AMFCTM would as well. Ideally, with a few more iterations, this
+project could end in an impressively unmanagable acronym.
 
 \section{Evaluation}
 
-In order to evaluate our model, we will need to have training and test SME sets. In order
-to establish these, I propose a test and training set split by bisecting by mincut\cite{Feige2002}
-a graph where authors are verticies, and edges exist for each co-authors relationship.
+In order to evaluate our model, we will need to have training and test SME sets. In
+order to establish these, I propose a test and training set split by bisecting by
+mincut\cite{Feige2002} a graph where authors are verticies, and edges exist for each
+co-authors relationship.
 
 
 
@@ -173,5 +188,6 @@ The \texttt{A-Team} currently has a proposed solution, XXX. I am tasked with pro
 
 \bibliography{references.bib}{}
 \bibliographystyle{plain}
+\end{multicols}
 
 \end{document}
