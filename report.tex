@@ -86,7 +86,7 @@
   these participants' relevant knowledge to a task or project is necessary to develop
   impactful teams from these large communities\cite{Minto2007}. It is the goal of this
   paper to provide an outlined and strategy to infer best participants from their
-  document contributions to a corpus. Topic modeling, such as Biterm Topic Model (BTM)\cite{Yan2013,Chen2015}, Latent Derichlet Allocation (LDA),
+  document contributions to a corpus. Topic modeling, such as Biterm Topic Model (BTM)\cite{Yan2013,Chen2015}, Latent Dirichlet Allocation (LDA),
   and Correlated Topic Model (CTM), have long been used to group related topics\cite{Alghamdi2015}. Likewise,
   author modeling has been used to measure attribution\cite{Rexha2018} and
   contribution\cite{AldebeiHJ016}. Author-Topic modeling establishes strategy to
@@ -120,7 +120,7 @@ developed an authorship graph that is explorable. Clustering by frequent-itemset
 advantages of supporting relatively small document sizes, and of varying shape.
 
 Unlike topic modeling, author-topic modeling attempts to describe the authors as
-a mixture of topics. Since we are looking for SMEs, subjects described as experts of
+associated with topics. Since we are looking for SMEs, subjects described as experts of
 matters, author-modeling is a closer fit. The phrase ``author modeling'' has also been used
 in techniques which are more concerned with literal text-content document
 contribution and attribution\cite{Rexha2018}; we are not interested in these techniques.
@@ -141,7 +141,7 @@ RESTful API to support this SME retrieval system.
 
 I am interested using author-topic\cite{Rosen-Zvi2004} modeling (ATM) to address the
 problem of SME retrieval. The base algorithm, in the literature, for ATM is an
-extension of LDA to include modeling authors of documents as mixtures of topics. A
+extension of LDA to include modeling author mixtures as well. A
 query system would then be developed to rank Author-topics against project
 descriptions and like documents.
 
@@ -149,8 +149,8 @@ There exists an open-source implementation of ATM in the \texttt{gensim}\cite{re
 module for \texttt{python}. If this proves effective, I would like to explore
 derivatives to ATM that rely on CTM instead of LDA. Unlike LDA, CTM models
 relationships between topics as well. Although this strategy may have unforeseen time
-cost in implementation, the concept is relatively simple; of modeling an author as a
-mixture of topics. To my knowledge Author-Correlated-Topic Models (ACTM) do not yet
+cost in implementation, the concept is relatively simple; of modeling an author's
+association to each topic. To my knowledge Author-Correlated-Topic Models (ACTM) do not yet
 have implementations.
 
 Additionally, there exists an extension of CTM that respect document fields, called
@@ -169,7 +169,7 @@ overhead associated with modifying these tools. I suspect that re-exploring prob
 programming languages with applications in mind will be fruitful in this effort.
 I will be bringing some resources\cite{lambert2018} to aid this knowledge gap.
 
-Additionally, other than MFCTM\cite{Salomatin2009MultifieldCT}, none of these topic models
+Other than MFCTM\cite{Salomatin2009MultifieldCT}, none of these topic models
 address separate fields. More troubling, is that I haven't yet found good resources for
 incorporating categorical or single value fields. The majority of approaches I've surveyed
 treat documents as contiguous, which may not best model PRS documents.
@@ -178,18 +178,24 @@ Finally, not all of these models work well on all size documents. An investigati
 be needed to find the best model for the job. It is possible that, due to small document
 sizes, a best implementation would be Author-Topic modeling over BTM.
 
+
 \section{Evaluation}
 
-It will be important that we investigate the stability of the models\cite{Yang2016}, in order
-to incorporate later documents, while minimizing change to the user experience.
+The original ATM paper identifies a subset of the test documents to be of single author.
+As long as these authors are appropriately represented in the training set, they act as
+a strong litmus test against this author modeling technique. They also state and describe
+the process for using these single author papers for perplexity.
+\begin{quote}
+  Perplexity is the standard measure for estimating the performance of a probabilistic model.
+\end{quote}
 
-\dots
-\begin{comment}
-In order to evaluate our model, we will need to have training and test SME sets. In
-order to establish these, I propose a test and training set split by bisecting by
-min-cut\cite{Feige2002} a graph where authors are vertices, and edges exist for each
-co-authors relationship.
-\end{comment}
+It will be important that we investigate the stability of the models\cite{Yang2016}, in order
+to incorporate later documents, while minimizing effect to the user experience.
+
+In order to prevent over-fitting, we will need to have training and test SME sets.
+I propose a test and training set split by bisecting by min-cut\cite{Feige2002} a graph where
+authors are vertices, and edges exist for each co-authors relationship, and is labeled by
+document name.
 
 \section{Schedule}
 
@@ -211,12 +217,12 @@ co-authors relationship.
   \item with and without fields
   \end{itemize}
 \item Explore clustering with author modeling, and compare improvements
-\item Extend a topic-model with author-modeling
+\item Extend some topic-models with author-topic-modeling
 \item (3 - continued)
 \item (3 - continued), Data Store
-\item (5 - continued), RESTful api
+\item (5 - continued), RESTful API
 \item Evaluation, performance, and stability metric
-\item User testing, asses incorperating new documents
+\item User testing, asses incorporating new documents
 \item Reporting
 \end{enumerate}
 
