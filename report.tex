@@ -86,7 +86,7 @@
   these participants' relevant knowledge to a task or project is necessary to develop
   impactful teams from these large communities\cite{Minto2007}. It is the goal of this
   paper to provide an outlined and strategy to infer best participants from their
-  document contributions to a corpus. Topic modeling, such as BTM\cite{Yan2013}, LDA,
+  document contributions to a corpus. Topic modeling, such as BTM\cite{Yan2013,Chen2015}, LDA,
   and CTM, have long been used to group related topics\cite{Alghamdi2015}. Likewise,
   author modeling has been used to measure attribution\cite{Rexha2018} and
   contribution\cite{AldebeiHJ016}. Author-Topic modeling establishes strategy to
@@ -115,23 +115,23 @@ JPL's \texttt{A-Team} explored, then developed, a now existing SME retrieval pro
 In developing this program, teams cited work on hierarchical clustering by
 frequent-itemsets\cite{wang2003,kiran2010}. Frequent-itemsets\cite{Agrawal1993} are a
 tool from relation mining, which has historically been used to discover hidden
-subpopulations with a shared characteristic pool. Clustering by frequent-itemsets has the
-advantage of supporting relatively small document sizes, and of varying shape. This is
-partly because items for itemsets are not weighted by TF or IDF, but rather simply
-a word's existence in a document and a support parameter.
+subpopulations with a shared characteristic pool. From these document clusters, teams
+developed an authorship graph that is explorable. Clustering by frequent-itemsets has
+advantages of supporting relatively small document sizes, and of varying shape.
 
 Unlike topic modeling, author-topic modeling attempts to describe the authors as
-a generative model. Since we are looking for SMEs, which are authors over topics,
-author-modeling is a closer fit. There exist other author modeling techniques\cite{Rexha2018}
-which are more concerned with literal text-content contribution, but SMEs are
-described as experts of topics.
+a mixture of topics. Since we are looking for SMEs, subjects described as experts of
+matters, author-modeling is a closer fit. The phrase ``author modeling'' has also been used
+in techniques which are more concerned with literal text-content document
+contribution and attribution\cite{Rexha2018}; we are not interested in these techniques.
 
 \section{Objectives}
 
 The goal of this project is to propose an alternative, or collaborative, strategy for
 SME retrieval. The document set will be different from \texttt{A-Team}'s, although
-not distinct. Ideally, this should also serve as a bases for clustering document
-resources in preparation for relevant projects.
+not distinct. We will be working with PFRs and ISAs from the Problem Reporting System
+(PRS), but should be able to grow to more document types. Ideally, this should also
+serve as a bases for clustering document resources and document similarity metrics.
 
 In addition to developing clustering and retrieval strategy, this project should yield
 a full, usable, search prototype. I discussed, with my mentors, the expectation of a
@@ -159,15 +159,66 @@ proves more effective at author modeling then ATM, I would interpret this as a s
 indicator that AMFCTM would as well. Ideally, with a few more iterations, this
 project could end in an impressively unmanageable acronym.
 
+\section{Dragons}
+
+Although the path through this proposal is fairly direct, some technical difficulties may arise.
+The major difference between LDA and CTM, for instance, is the distribution used for modeling
+documents. Although I do have some basic understanding of the tooling for Bayesian modeling,
+I have not yet applied them to real problems, and do not know the computational or development
+overhead associated with modifying these tools. I suspect that re-exploring probabilistic
+programming languages with applications in mind will be fruitful in this effort.
+I will be bringing some resources\cite{lambert2018} to aid this knowledge gap.
+
+Additionally, other than MFCTM\cite{Salomatin2009MultifieldCT}, none of these topic models
+address separate fields. More troubling, is that I haven't yet found good resources for
+incorporating categorical or single value fields. The majority of approaches I've surveyed
+treat documents as contiguous, which may not best model PRS documents.
+
+Finally, not all of these models work well on all size documents. An investigation will
+be needed to find the best model for the job. It is possible that, due to small document
+sizes, a best implementation would be Author-Topic modeling over BTM.
 
 \section{Evaluation}
 
+It will be important that we investigate the stability of the models\cite{Yang2016}, in order
+to incorporate later documents, while minimizing change to the user experience.
+
+\dots
+\begin{comment}
 In order to evaluate our model, we will need to have training and test SME sets. In
 order to establish these, I propose a test and training set split by bisecting by
 min-cut\cite{Feige2002} a graph where authors are vertices, and edges exist for each
 co-authors relationship.
+\end{comment}
 
 \section{Schedule}
+
+\begin{enumerate}[\texttt{WK} 1 -]
+  \setcounter{enumi}{-1}
+\item Setup
+  \begin{itemize}
+  \item Gain access to data
+  \item appraise proposal
+  \item document target UX for final project
+  \item read and explore examples from data set
+  \item draft or adopt normalization strategy
+  \item divide into toy, train, and test sets
+  \item discuss/establish evaluation strategies
+  \end{itemize}
+\item Explore common clustering
+  \begin{itemize}
+  \item without authors
+  \item with and without fields
+  \end{itemize}
+\item Explore clustering with author modeling, and compare improvements
+\item Extend a topic-model with author-modeling
+\item (3 - continued)
+\item (3 - continued), Data Store
+\item (5 - continued), RESTful api
+\item Evaluation, performance, and stability metric
+\item User testing, asses incorperating new documents
+\item Reporting
+\end{enumerate}
 
 
 \begin{comment}
