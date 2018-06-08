@@ -119,7 +119,7 @@ subpopulations with a shared characteristic pool. From these document clusters, 
 developed an authorship graph that is explorable. Clustering by frequent-itemsets has
 advantages of supporting relatively small document sizes, and of varying shape.
 
-Unlike topic modeling, author-topic modeling attempts to describe the authors as
+Unlike topic modeling, author-topic models attempt to describe the authors as
 associated with topics. Since we are looking for SMEs, subjects described as experts of
 matters, author-modeling is a closer fit. The phrase ``author modeling'' has also been used
 in techniques which are more concerned with literal text-content document
@@ -178,7 +178,6 @@ Finally, not all of these models work well on all size documents. An investigati
 be needed to find the best model for the job. It is possible that, due to small document
 sizes, a best implementation would be Author-Topic modeling over BTM.
 
-
 \section{Evaluation}
 
 The original ATM paper identifies a subset of the test documents to be of single author.
@@ -225,6 +224,15 @@ document name.
 \item User testing, asses incorporating new documents
 \item Reporting
 \end{enumerate}
+
+\section{Comments}
+
+I recognize that this proposal may change dramatically with mentor input.
+These strategies don't take into account any network representation of the authors,
+which is distinct from the current implementation.
+I am very interested to learn and explore more extensions, especially heirarchical
+topic modeling, and topic-aware influence propogation. I suspect that these
+extensions are closer to what \texttt{A-Team} has already developed.
 
 
 \begin{comment}
