@@ -81,19 +81,19 @@
 \maketitle
 
 \begin{abstract}
-  In a large community, enlisting of potential collaborators and subject matter experts
-  greatly impacts the success of a project. Inferring identification and ranking of
-  these participants' relevant knowledge to a task or project is necessary to develop
-  impactful teams from these large communities\cite{Minto2007}. It is the goal of this
-  paper to provide an outlined and strategy to infer best participants from their
+  In a large community, enlisting potential collaborators and subject matter experts
+  greatly impacts the success of a project. Inferring identification and ranking
+  participants' relevant knowledge to a task or project is necessary to develop
+  impactful teams from these large communities\cite{Minto2007}. This
+  paper to provides an outlined and strategy to identify best participants from their
   document contributions to a corpus. Topic modeling, such as Biterm Topic Model (BTM)\cite{Yan2013,Chen2015}, Latent Dirichlet Allocation (LDA),
   and Correlated Topic Model (CTM), have long been used to group related topics\cite{Alghamdi2015}. Likewise,
   author modeling has been used to measure attribution\cite{Rexha2018} and
   contribution\cite{AldebeiHJ016}. Author-Topic modeling establishes strategy to
-  relate topics to authors\cite{Rosen-Zvi2004}. Under the, common, assumption that
-  authorship implies relevant knowledge to a document's topic; proposed is to explore
+  relate topics to authors\cite{Rosen-Zvi2004}. Under the assumption that
+  authorship implies relevant knowledge to a document's topic; explore
   the space of Author-Topic modeling as a mechanism for measuring expertise against a
-  project description, as a query.
+  project description.
 \end{abstract}
 
 % http://www.sfp.caltech.edu/students/proposal/other_project_plans
@@ -103,25 +103,25 @@
 
 \section{Introduction}
 
-For my JPL fellowship I will be exploring Subject Matter Expert (SME) retrieval,
+For my JPL fellowship I will be exploring Subject Matter Expert (SME) retrieval
 from a collection of documents with attribution. SME retrieval is necessary for
-building effective teams for specific projects. In order to support the scale of an
-institution like JPL/NASA, and at the complexity of the problems they address, we are
+building effective teams for specific projects. In order to best support the scale of an
+institution like JPL/NASA, and domain specific nature of the problems they address, we are
 interested in strategies to infer and retrieve SMEs. An effective SME retrieval program
-would significantly reduce coordination overhead of election and discovery of
+significantly reduces coordination overhead of election and discovery of
 contributors to complex, domain specific, problems.
 
 JPL's \texttt{A-Team} explored, then developed, a now existing SME retrieval program.
 In developing this program, teams cited work on hierarchical clustering by
 frequent-itemsets\cite{wang2003,kiran2010}. Frequent-itemsets\cite{Agrawal1993} are a
-tool from relation mining, which has historically been used to discover hidden
+relation mining tool, which have historically been used to discover hidden
 subpopulations with a shared characteristic pool. From these document clusters, teams
-developed an authorship graph that is explorable. Clustering by frequent-itemsets has
-advantages of supporting relatively small document sizes, and of varying shape.
+developed an explorable authorship network. Clustering by frequent-itemsets has
+supports relatively small document sizes, and of varying shape.
 
 Unlike topic modeling, author-topic models attempt to describe the authors as
-associated with topics. Since we are looking for SMEs, subjects described as experts of
-matters, author-modeling is a closer fit. The phrase ``author modeling'' has also been used
+associated with topics. Since we are looking for SMEs,
+author-modeling is a closer fit. The phrase ``author modeling'' has also been used
 in techniques which are more concerned with literal text-content document
 contribution and attribution\cite{Rexha2018}; we are not interested in these techniques.
 
@@ -129,7 +129,8 @@ contribution and attribution\cite{Rexha2018}; we are not interested in these tec
 
 The goal of this project is to propose an alternative, or collaborative, strategy for
 SME retrieval. The document set will be different from \texttt{A-Team}'s, although
-not distinct. We will be working with PFRs and ISAs from the Problem Reporting System
+not distinct. We will be working with Pre-Launch Failures (PFR)s and
+Incident Surprise Anomalies (ISA)s from the Problem Reporting System
 (PRS), but should be able to grow to more document types. Ideally, this should also
 serve as a bases for clustering document resources and document similarity metrics.
 
@@ -139,19 +140,18 @@ RESTful API to support this SME retrieval system.
 
 \section{Approach}
 
-I am interested using author-topic\cite{Rosen-Zvi2004} modeling (ATM) to address the
-problem of SME retrieval. The base algorithm, in the literature, for ATM is an
-extension of LDA to include modeling author mixtures as well. A
-query system would then be developed to rank Author-topics against project
+I am interested using author-topic\cite{Rosen-Zvi2004} modeling (ATM) for
+SME retrieval. The base algorithm for ATM is an
+extension of LDA to model authors relation to topics as well. I will develop
+a query system to rank Author-topics against project
 descriptions and like documents.
 
 There exists an open-source implementation of ATM in the \texttt{gensim}\cite{rehurek_lrec}
 module for \texttt{python}. If this proves effective, I would like to explore
 derivatives to ATM that rely on CTM instead of LDA. Unlike LDA, CTM models
 relationships between topics as well. Although this strategy may have unforeseen time
-cost in implementation, the concept is relatively simple; of modeling an author's
-association to each topic. To my knowledge Author-Correlated-Topic Models (ACTM) do not yet
-have implementations.
+cost in implementation. To my knowledge Author-Correlated-Topic Models (ACTM) are
+not yet implemented.
 
 Additionally, there exists an extension of CTM that respect document fields, called
 Multi-field Correlated Field Topic Modeling\cite{Salomatin2009MultifieldCT}. If ACTM
@@ -170,7 +170,7 @@ programming languages with applications in mind will be fruitful in this effort.
 I will be bringing some resources\cite{lambert2018} to aid this knowledge gap.
 
 Other than MFCTM\cite{Salomatin2009MultifieldCT}, none of these topic models
-address separate fields. More troubling, is that I haven't yet found good resources for
+address separate fields. More troubling, I haven't yet found good resources for
 incorporating categorical or single value fields. The majority of approaches I've surveyed
 treat documents as contiguous, which may not best model PRS documents.
 
@@ -230,8 +230,8 @@ document name.
 I recognize that this proposal may change dramatically with mentor input.
 These strategies don't take into account any network representation of the authors,
 which is distinct from the current implementation.
-I am very interested to learn and explore more extensions, especially heirarchical
-topic modeling, and topic-aware influence propogation. I suspect that these
+I am very interested to learn and explore more extensions, especially hierarchical
+topic modeling, and topic-aware influence propagation. I suspect that these
 extensions are closer to what \texttt{A-Team} has already developed.
 
 
