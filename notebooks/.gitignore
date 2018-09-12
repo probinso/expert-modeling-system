@@ -1,0 +1,9 @@
+*.cm
+*.lda
+*.lda.expElogbeta.npy
+*.lda.id2word
+*.lda.state
+*.pkl
+lang.py
+reverstem.py
+*destination_path.png

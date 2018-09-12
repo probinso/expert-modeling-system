@@ -1,0 +1,40 @@
+# All document types must have their labels entered here
+# it is assumed that these document types may have much in common
+document_types:
+  - example_document_type
+
+# All fields are required, however lists are flexible in length
+example_document_type:
+  # what is the root directory of your input files
+  datadir: /home/username/inputdatadir
+
+  # what is the name of the raw csv stored in <datadir>
+  filename: example.csv
+
+  # what 'free text' columns are expected to exist in the csv
+  free_text_labels:
+    - Description
+    - Title
+    - OtherFreeText
+
+  # what is the column that names the unique document id
+  key: Anomaly_ID
+
+  # what is the name of the experts csv stored in <datadir>
+  experts: example_experts.csv
+
+  # what columns must exist, and uniqely define an expert-document pair
+  expert_labels:
+    - Anomaly_ID
+    - Users_ID
+
+  # All of these files are required, they specifiy cleaning resources
+  list_resources:
+    rules: rules.txt # regular expressions to be supressed
+    protected: protected.txt   # words that should not be stemmed
+    stopwords: stopwords.txt   # words that should be removed
+    truncable: words_alpha.txt # words that can be stemmed
+
+  # How many topics and iterations for this doucment type
+  topics: 25
+  iterations: 251

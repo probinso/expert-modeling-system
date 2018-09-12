@@ -1,0 +1,91 @@
+document_types:
+  - PFR
+  - DPFR
+  - ISA
+
+PFR:
+  datadir: /Users/philipr/git/jpl-playground/code/data
+  filename: PFR.csv
+  free_text_labels:
+    - CorrectiveAction
+    - Description
+    - ExecutiveSummary
+    - Issues
+    - Paragraph
+    - TestVerification
+    - Title
+    - VerificationAnalysis
+  key: Anomaly_ID
+  attributions: PFR_experts.csv
+  expert_key: Users_ID
+  experts: expert_map.csv
+  expert_labels:
+    - First_Name
+    - Middle_Name
+    - Last_Name
+    - Organization_Number
+  list_resources:
+    rules: rules.txt
+    protected: protected.txt
+    stopwords: stopwords.txt
+    truncable: words_alpha.txt
+  topics: 25
+  iterations: 251
+
+DPFR:
+  datadir: /Users/philipr/git/jpl-playground/code/data
+  filename: DPFR.csv
+  free_text_labels:
+    - CorrectiveAction
+    - Description
+    - ExecutiveSummary
+    - Issues
+    - Paragraph
+    - TestVerification
+    - Title
+    - VerificationAnalysis
+  key: Anomaly_ID
+  attributions: DPFR_experts.csv
+  experts: expert_map.csv
+  expert_labels:
+    - First_Name
+    - Middle_Name
+    - Last_Name
+    - Organization_Number
+  expert_key: Users_ID
+  list_resources:
+    rules: rules.txt
+    protected: protected.txt
+    stopwords: stopwords.txt
+    truncable: words_alpha.txt
+  topics: 25
+  iterations: 351
+
+ISA:
+  datadir: /Users/philipr/git/jpl-playground/code/data
+  filename: ISA.csv
+  free_text_labels:
+    - AnalysisImpacts
+    - CorrectiveAction
+    - Description
+    - ExecutiveSummary
+    - Issues
+    - TestVerification
+    - Title
+    - WorkstationName
+  key: Anomaly_ID
+  attributions: ISA_experts.csv
+  experts: expert_map.csv
+  expert_labels:
+    - First_Name
+    - Middle_Name
+    - Last_Name
+    - Organization_Number
+  expert_key: Users_ID
+  list_resources:
+    rules: rules.txt
+    protected: protected.txt
+    stopwords: stopwords.txt
+    truncable: words_alpha.txt
+  topics: 40
+  iterations: 351

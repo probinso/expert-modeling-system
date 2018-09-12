@@ -1,0 +1,206 @@
+\documentclass{article}
+
+\usepackage[affil-it]{authblk}
+
+\usepackage[USenglish,american]{babel}
+\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}
+
+\usepackage{cite}
+
+\usepackage{amsfonts,amsmath,amsthm,amssymb}
+
+\usepackage{tikz,pgf}
+\usetikzlibrary{fit}
+
+\usepackage{csvsimple}
+
+%\pagestyle{empty}
+\setlength{\parindent}{0mm}
+\usepackage[letterpaper, margin=1in]{geometry}
+%\usepackage{showframe}
+
+\usepackage{multicol}
+\usepackage{enumerate}
+
+\usepackage{verbatim}
+\usepackage{listings}
+
+\usepackage{color}
+
+%%
+%% Julia definition (c) 2014 Jubobs
+%%
+\lstdefinelanguage{Julia}%
+  {morekeywords={abstract,break,case,catch,const,continue,do,else,elseif,%
+      end,export,false,for,function,immutable,import,importall,if,in,%
+      macro,module,otherwise,quote,return,switch,true,try,type,typealias,%
+      using,while},%
+   sensitive=true,%
+   alsoother={$},%
+   morecomment=[l]\#,%
+   morecomment=[n]{\#=}{=\#},%
+   morestring=[s]{"}{"},%
+   morestring=[m]{'}{'},%
+}[keywords,comments,strings]%
+
+\lstset{%
+    language         = Python,
+    basicstyle       = \footnotesize\ttfamily,,
+    keywordstyle     = \bfseries\color{blue},
+    stringstyle      = \color{magenta},
+    commentstyle     = \color{red},
+    showstringspaces = false,
+    backgroundcolor  = \color{lightgray},
+    numbers          = left,
+    title            = \lstname,
+    numberstyle      = \tiny\color{lightgray}\ttfamily,
+}
+
+\usepackage{xspace}
+\usepackage{url}
+\usepackage{cite}
+
+\usepackage{titlesec}
+\titlespacing*{\subsubsection}{0pt}{*0}{*0}
+\titlespacing*{\subsection}{0pt}{0pt}{*0}
+\titlespacing*{\section}{0pt}{0pt}{*0}
+
+\newcommand{\Bold}{\mathbf}
+
+\setlength{\parskip}{1em}
+%\setlength{\parindent}{1em}
+
+\title{SME retrieval by Author-Topic Modeling}
+\date{\today}
+\author{Philip Robinson}
+\affil{NASA: Jet Propoultion Labratory}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  In a large community, enlisting potential collaborators and subject matter experts
+  greatly impacts the success of a project. Inferring identification and ranking
+  participants' relevant knowledge to a task or project is necessary to develop
+  impactful teams from these large communities\cite{Minto2007}. This
+  paper to provides an outlined and strategy to identify best participants from their
+  document contributions to a corpus. Topic modeling, such as Biterm Topic Model (BTM)\cite{Yan2013,Chen2015}, Latent Dirichlet Allocation (LDA),
+  and Correlated Topic Model (CTM), have long been used to group related topics\cite{Alghamdi2015}. Likewise,
+  author modeling has been used to measure attribution\cite{Rexha2018} and
+  contribution\cite{AldebeiHJ016}. Author-Topic modeling establishes strategy to
+  relate topics to authors\cite{Rosen-Zvi2004}. Under the assumption that
+  authorship implies relevant knowledge to a document's topic; explore
+  the space of Author-Topic modeling as a mechanism for measuring expertise against a
+  project description.
+\end{abstract}
+
+% http://www.sfp.caltech.edu/students/proposal/other_project_plans
+% https://trs.jpl.nasa.gov/
+
+\begin{multicols}{2}
+
+\section{Objectives}
+
+The goal of this project is to propose an alternative, or collaborative, strategy for
+SME retrieval. The document set will be different from \texttt{A-Team}'s, although
+not distinct. We will be working with Pre-Launch Failures (PFR)s and
+Incident Surprise Anomalies (ISA)s from the Problem Reporting System
+(PRS), but should be able to grow to more document types. This should also
+serve as a bases for clustering document resources and document similarity metrics,
+because the second project I've been tasked with is identifying multiple reports covering
+the same topic.
+
+In addition to developing clustering and retrieval strategy, this project should yield
+a full, usable, search prototype. I discussed, with my mentors, the expectation of a
+RESTful API to support this SME retrieval system.
+
+
+\section{Evaluation}
+
+The original ATM paper identifies a subset of the test documents to be of single author.
+As long as these authors are appropriately represented in the training set, they act as
+a strong litmus test against this author modeling technique. They also state and describe
+the process for using these single author papers for perplexity.
+\begin{quote}
+  Perplexity is the standard measure for estimating the performance of a probabilistic model.
+\end{quote}
+
+It will be important that we investigate the stability of the models\cite{Yang2016}, in order
+to incorporate later documents, while minimizing effect to the user experience.
+
+In order to prevent over-fitting, we will need to have training and test SME sets.
+I propose a test and training set split by bisecting by min-cut\cite{Feige2002} a graph where
+authors are vertices, and edges exist for each co-authors relationship, and is labeled by
+document name.
+
+\pagebreak
+\section{Schedule}
+
+\begin{enumerate}[\texttt{WK} 1 -]
+  \setcounter{enumi}{-1}
+\item Setup
+  \begin{itemize}
+  \item Gain access to data
+  \item appraise proposal
+  \item document target UX for final project
+  \item read and explore examples from data set
+  \item draft or adopt normalization strategy
+  \item divide into toy, train, and test sets
+  \item discuss/establish evaluation strategies
+  \end{itemize}
+\item Explore common clustering
+  \begin{itemize}
+  \item without authors
+  \item with and without fields
+  \end{itemize}
+\item Explore clustering with author modeling, and compare improvements
+\item Extend some topic-models with author-topic-modeling
+\item (3 - continued)
+\item (3 - continued), Data Store, RESTful API
+\item (5 - continued), UI
+\item Evaluation, performance, and stability metric
+\item User testing, asses incorporating new documents
+\item Reporting
+\end{enumerate}
+
+\vfill
+\columnbreak
+
+\section{Progress}
+
+I have just finished {\bf WK - 2} of this term. For a more detailed overview check the github repository\footnote{https://github.jpl.nasa.gov/5X176X/sme-topic-modeling} and cooresponding issue tracker\footnote{https://github.jpl.nasa.gov/5X176X/sme-topic-modeling/issues}.
+
+For {\bf WK - 0} I have access to template data, and am waiting on the final data requests to be filled. We droped documenting the UX for the project, until needed; because there exist template interfaces from prior attempts at addressing this problem. I have a principled appropach for text normalization that would easily extend to similar shaped data. The data has been split in a consistant way on 80/20 train/test. We have discussed using perplexity, stability, and coherence as evaluation metrics.
+
+For {\bf WK - 1} LDA has been used, and cluster hyperparameters have been elected. I have not looked into other topic models, because it took more time than expected to normalize the text, and it is a secondary goal to have good similarity metrics.
+
+For {\bf WK - 2} the LDA being used is in gensim the ATM is the next step in this process.
+
+For {\bf WK - 3} in order to  adopt new models, we need an expresive tool for describing them, the two candidates are edward and stan. I'm moving forward on installing both of these on my machine, but edward is not trivial, as tensorflow required by edward is not obviously compatible with OSX.
+
+\begin{comment}
+
+%\subsection{What is general technical area in which you will be working?}
+%\subsection{What is the problem that you are trying to solve?}
+%\subsection{How did this problem arise?}
+%\subsection{Why is this problem interesting or worthwhile?}
+%\subsection{What is the status of related research by your mentor or group by the group that you will be joining?}
+%\subsection{What will be the contribution and significance of your effort?}
+
+\section{Objectives}
+
+
+\section{Materials}
+\section{Results}
+\section{Discussion}
+\subsection{Study Assumptions}
+\subsection{Data Acquisition}
+\end{comment}
+
+\bibliography{references.bib}{}
+\bibliographystyle{plain}
+\end{multicols}
+
+\end{document}

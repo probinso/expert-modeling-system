@@ -1,0 +1,107 @@
+\documentclass{article}
+
+\usepackage[affil-it]{authblk}
+
+\usepackage[USenglish,american]{babel}
+\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}
+
+\usepackage{cite}
+
+\usepackage{amsfonts,amsmath,amsthm,amssymb}
+
+\usepackage{tikz,pgf}
+\usetikzlibrary{fit}
+
+\usepackage{csvsimple}
+
+%\pagestyle{empty}
+\setlength{\parindent}{0mm}
+\usepackage[letterpaper, margin=1in]{geometry}
+%\usepackage{showframe}
+
+\usepackage{multicol}
+\usepackage{enumerate}
+
+\usepackage{verbatim}
+\usepackage{listings}
+
+\usepackage{color}
+
+%%
+%% Julia definition (c) 2014 Jubobs
+%%
+\lstdefinelanguage{Julia}%
+  {morekeywords={abstract,break,case,catch,const,continue,do,else,elseif,%
+      end,export,false,for,function,immutable,import,importall,if,in,%
+      macro,module,otherwise,quote,return,switch,true,try,type,typealias,%
+      using,while},%
+   sensitive=true,%
+   alsoother={$},%
+   morecomment=[l]\#,%
+   morecomment=[n]{\#=}{=\#},%
+   morestring=[s]{"}{"},%
+   morestring=[m]{'}{'},%
+}[keywords,comments,strings]%
+
+\lstset{%
+    language         = Python,
+    basicstyle       = \footnotesize\ttfamily,,
+    keywordstyle     = \bfseries\color{blue},
+    stringstyle      = \color{magenta},
+    commentstyle     = \color{red},
+    showstringspaces = false,
+    backgroundcolor  = \color{lightgray},
+    numbers          = left,
+    title            = \lstname,
+    numberstyle      = \tiny\color{lightgray}\ttfamily,
+}
+
+\usepackage{xspace}
+\usepackage{url}
+\usepackage{cite}
+
+\usepackage{titlesec}
+\titlespacing*{\subsubsection}{0pt}{*0}{*0}
+\titlespacing*{\subsection}{0pt}{0pt}{*0}
+\titlespacing*{\section}{0pt}{0pt}{*0}
+
+\newcommand{\Bold}{\mathbf}
+
+\setlength{\parskip}{1em}
+%\setlength{\parindent}{1em}
+
+\title{Learning and Ranking Subject Matter Experts}
+\date{\today}
+\author{Philip Robinson}
+\affil{NASA: Jet Propulsion Laboratory}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  Our goal is to suggest Subject Matter Experts for addressing issues
+  submitted to the Jet Propulsion Laboratory's Problem Reporting System.
+  In a large community, enlisting potential collaborators and subject matter experts
+  greatly impacts the success of a project. Inferring identification and ranking
+  candidates' relevant knowledge to a task or project is necessary to inform recruiting
+  of impactful teams\cite{Minto2007}.
+  %the value of modeling contribution and attribution as a proxy for expertise.
+  Topic modeling, such as Biterm Topic Model (BTM)\cite{Yan2013,Chen2015}, Latent Dirichlet Allocation (LDA),
+  and Correlated Topic Model (CTM), have long been used to group related topics\cite{Alghamdi2015}. Likewise,
+  author modeling has been used to measure attribution\cite{Rexha2018} and
+  contribution\cite{AldebeiHJ016}. Author-Topic modeling establishes a strategy to
+  map both authors and documents to the same topic-space over a vocabulary\cite{Rosen-Zvi2004}.
+  Employing the ATM, this system is able to identify and rank relevant contributors
+  from a project description. This approach should generalize to many other document collections
+  with attribution.
+\end{abstract}
+
+% http://www.sfp.caltech.edu/students/proposal/other_project_plans
+% https://trs.jpl.nasa.gov/
+
+\bibliography{references.bib}{}
+\bibliographystyle{plain}
+
+\end{document}

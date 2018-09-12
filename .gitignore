@@ -107,3 +107,9 @@ papers
 *.bbl
 *.pdf
 *.blg
+
+# Philip
+backup
+**DS_Store
+**~
+output
