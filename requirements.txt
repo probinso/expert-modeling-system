@@ -1,6 +1,7 @@
 appdirs
 jupyter
 nbconvert
+gensim
 nltk
 pandas
 pyLDAvis
