@@ -2,7 +2,7 @@
 
 This code takes input text documents and a configuration file to describe
 a learned recomender system for identifying experts. The following `config`
-represents a list of required fields associates with a document_type.
+represents a list of required fields associated with a document_type.
 
 ```yaml
 document_types:
