@@ -47,7 +47,7 @@ PFR:
 
 Examples of minimal data as described by the config file.
 
-`PFR.csv`
+`PFR.csv` named in config by `filename`
 
 ```csv
 Anomaly_ID,CorrectiveAction,Description,ExecutiveSummary,Title
@@ -55,7 +55,7 @@ Anomaly_ID,CorrectiveAction,Description,ExecutiveSummary,Title
 2222,"didn't do much stuff","nothing needed to be done...","ain't broke don't fix!","our tasks"
 ```
 
-`PFR_experts.csv`
+`PFR_experts.csv` (named in config by `attributions`) is a list of documents by `Anomaly_ID` (named in config by `key`) and associated authors by `Users_ID` (named in config by `expert_key`)
 
 ```csv
 Anomaly_ID,Users_ID
@@ -72,7 +72,7 @@ Users_ID,First_Name,Middle_Name,Last_Name,Organization_Number
 98231,Wilhelm,Marshal,Zagava,7823
 ```
 
-`rules.txt`
+`rules.txt` denotes line seperated regular expressions to be treated as stop-phrases
 
 ```txt
 &euro;
@@ -81,7 +81,7 @@ Users_ID,First_Name,Middle_Name,Last_Name,Organization_Number
 [\(\),\'\"\.:]
 ```
 
-`protected.txt`
+`protected.txt` denotes line seperated words protected from removal, stemming, and lemmatization.
 
 ```txt
 command
@@ -90,7 +90,7 @@ system
 telemetry
 ```
 
-`stopwords.txt`
+`stopwords.txt` denotes words to be removed from the documents, chosen through exploratory data analysis.
 
 ```txt
 the
@@ -98,7 +98,7 @@ he
 them
 ```
 
-`words_alpha.txt`
+`words_alpha.txt` denotes a dictionary of all language words, these are allowed to be stemmed and lemmatized. Words that appear that aren't in this list are considered domain special phrases and are often acronyms of business lexicon, they should not be transformed.
 
 ```txt
 forgetfulness
