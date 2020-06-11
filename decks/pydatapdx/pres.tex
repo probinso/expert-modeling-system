@@ -358,6 +358,7 @@
 
 \section{Results}
 
+\begin{comment}
 \begin{frame}{Ranking}
   {\bf Seems to work}
 
@@ -372,44 +373,8 @@
 
   K is cutoff for suggested candidates
 \end{frame}
+\end{comment}
 
-\begin{frame}{Receiving Candidates}
-  {\bf Results begin at 4 words}
-
-  It is possible to get interesting results at a document length of 4 words,
-  however it is hard to know why these results are interesting.
-  This is an example of directly searching for experts.
-
-  \begin{multicols}{2}
-    \includegraphics[width=\columnwidth]{query1.png}
-
-    \includegraphics[width=\columnwidth]{query2.png}
-  \end{multicols}
-
-%  Documents queries generate better results. These examples are
-%  currently unable to demo.
-
-\end{frame}
-
-
-\begin{frame}{How does word count effect recall?}
-  {\bf Best results at 30 words}
-
-  We are interested in understanding how much text is required to inform
-  our model prediction. For these plots, we randomly subset texts for
-  known ticket-expert pairs and observe the expert's new ranking.
-
-  \begin{multicols}{2}
-    \includegraphics[width=\columnwidth]{low-ranked-downsample.png}
-    Expert found in top 2\\
-    24 critical words
-
-
-    \includegraphics[width=\columnwidth]{mid-ranked-downsample.png}
-    expert found in 10-20 range\\
-    29 critical words
-  \end{multicols}
-\end{frame}
 
 \section{Distances}
 
@@ -431,13 +396,13 @@
 \section{Evaluation}
 
 \begin{frame}{Evaluation}
-  {\bf Does our fit Dirichlet distribution describe our data or our understanding?}
+  {\bf Does our fit model describe our data or our understanding?}
 
   \begin{itemize}
   \item perplexity
-  \item predictive power (Recall / Precision)
   \item coherence\cite{Roder2015,TACL582}
   \item visualization\cite{sievert-shirley-2014-ldavis,2012-termite}
+  \item predictive power (Recall / Precision)
   \item topic stability\cite{Yang2016}
   \item topic significance\cite{alsumait2009topic}
   \end{itemize}
@@ -455,6 +420,7 @@
   \end{align*}
 
 \end{frame}
+
 \begin{frame}{Coherence}
   {\bf coherence for scorable EDA\footnote{exploratory data analysis}}
   \begin{quote}
@@ -474,18 +440,49 @@
 
 \end{frame}
 
+\begin{frame}{Predictive Power}
+  {\bf Results begin at 4 words}
 
-\begin{comment}
-  \begin{frame}{Predictive Power}
-  {\bf Depends on your downstream applications}
+  It is possible to get interesting results at a document length of 4 words,
+  however it is hard to know why these results are interesting.
+  This is an example of directly searching for experts.
 
-  \begin{quote}
-    Does your client end up benefiting from the tool. This could be many measures like recall or click-through.
-  \end{quote}
-  \end{frame}
-\end{comment}
+  \begin{multicols}{2}
+    \includegraphics[width=\columnwidth]{query1.png}
+
+    \includegraphics[width=\columnwidth]{query2.png}
+  \end{multicols}
+
+%  Documents queries generate better results. These examples are
+%  currently unable to demo.
+
+\end{frame}
+
+\begin{frame}{How does word count effect recall?}
+  {\bf Best results at 30 words}
+
+  We are interested in understanding how much text is required to inform
+  our model prediction. For these plots, we randomly subset texts for
+  known ticket-expert pairs and observe the expert's new ranking.
+
+  \begin{multicols}{2}
+    \includegraphics[width=\columnwidth]{low-ranked-downsample.png}
+    Expert found in top 2\\
+    24 critical words
+
+    \includegraphics[width=\columnwidth]{mid-ranked-downsample.png}
+    expert found in 10-20 range\\
+    29 critical words
+  \end{multicols}
+\end{frame}
+
+\section{Conclusion}
 
 \begin{frame}{Conclusion \& Questions}
+
+  \begin{quote}
+    Given a corpus of size $\sim 60000$ each with a set of $>3000$ contributors, we were able to show that a generated document of $30$ sampled words from an individual document in the test set would identify the experts for a ticket within the first 15 results.
+  \end{quote}
 
 \end{frame}
 
