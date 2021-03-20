@@ -4,7 +4,7 @@ boto3==1.9.1
 bz2file==0.98
 docutils==0.14
 Flask==1.0.2
-Jinja2==2.10
+Jinja2==2.11.3
 MarkupSafe==1.0
 nltk==3.3
 numpy==1.15.1
